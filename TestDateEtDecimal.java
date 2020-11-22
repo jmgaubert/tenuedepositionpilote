@@ -12,6 +12,8 @@ public class TestDateEtDecimal {
 
     public static void main(String[] args) throws ParseException {
 
+        System.out.println("integration GITHUB");
+
         System.out.println("test sur dates");
 
         Calendar calendar = Calendar.getInstance();
