@@ -59,19 +59,19 @@ public class BordereauVirement {
         System.out.println("soldes avant virement");
         //verification/récuperation du solde associé au compte emetteur
         //on suppose que solde du compte emetteur est à 3790.14
-        double montantSoldeEmetteur = (double) 3790.14;
+        double montantSoldeEmetteur = 3790.14;
         Solde soldeCompteEmetteur = new Solde(referenceCompteEmetteur, montantSoldeEmetteur);
         soldeCompteEmetteur.afficherInformations();
         //verification/récuperation du solde associé au compte recepteur
         //on suppose que solde du compte recepteur est à -145.32
-        double montantSoldeRecepteur = (double) -145.32;
+        double montantSoldeRecepteur = -145.32;
         Solde soldeCompteRecepteur = new Solde(referenceCompteRecepteur, montantSoldeRecepteur);
         soldeCompteRecepteur.afficherInformations();
 
         Mouvement mouvementVirementEmetteur = new Mouvement(referenceCompteEmetteur,
                 dateVirement,
                 dateVirement.minusDays(1),
-                (double) montant * -1,
+                 montant * -1,
                 libelle+ " à destination de "+titulaireCompteRecepteur.getTitulaire());
         mouvementVirementEmetteur.afficherInformations();
 
