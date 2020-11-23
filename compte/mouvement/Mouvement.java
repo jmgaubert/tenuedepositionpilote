@@ -29,6 +29,10 @@ public class Mouvement extends Compte {
         return montant;
     }
 
+    public String getLibelle() {
+        return libelle;
+    }
+
     public void afficherInformations() {
 
         System.out.println("Mouvement : "

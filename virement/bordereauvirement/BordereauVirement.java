@@ -47,13 +47,15 @@ public class BordereauVirement {
 
         //recherche titulaire du compte emetteur
         String nomTitulaireCompteEmetteur = "Antoine Dupond";
+        String adresseMailTitulaireCompteEmetteur = "Antoine.Dupond@gmail.com";
         Titulaire titulaireCompteEmetteur = new Titulaire(nomTitulaireCompteEmetteur,
-                referenceCompteEmetteur);
+                referenceCompteEmetteur,adresseMailTitulaireCompteEmetteur);
         titulaireCompteEmetteur.afficherInformations();
         //recherche titulaire du compte recepteur
         String nomTitulaireCompteRecepteur = "Valérie Labelle";
+        String adresseMailTitulaireCompteRecepteur = "Valérie.Labelle@gmail.com";
         Titulaire titulaireCompteRecepteur = new Titulaire(nomTitulaireCompteRecepteur,
-                referenceCompteRecepteur);
+                referenceCompteRecepteur,adresseMailTitulaireCompteRecepteur);
         titulaireCompteRecepteur.afficherInformations();
 
         System.out.println("soldes avant virement");
@@ -88,6 +90,15 @@ public class BordereauVirement {
         soldeCompteRecepteur.ajouterASolde(mouvementVirementRecepteur);
         soldeCompteRecepteur.afficherInformations();
 
+        informerBeneficiaire(titulaireCompteRecepteur,mouvementVirementRecepteur);
+
     }
 
+    public void informerBeneficiaire(Titulaire titulaireCompteRecepteur, Mouvement mouvementVirementRecepteur){
+
+        System.out.println(titulaireCompteRecepteur.getAdresseMail()+" vous avez reçu un virement de :"
+                   +mouvementVirementRecepteur.getMontant()+" "+mouvementVirementRecepteur.getLibelle());
+
+
+    }
 }
