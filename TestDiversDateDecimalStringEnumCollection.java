@@ -1,14 +1,12 @@
+import listeenumeration.JourSemaine;
+
 import java.math.BigDecimal;
-import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Calendar;
-import java.util.Date;
 
-public class TestDateEtDecimal {
+public class TestDiversDateDecimalStringEnumCollection {
 
     public static void main(String[] args) throws ParseException {
 
@@ -70,6 +68,52 @@ public class TestDateEtDecimal {
 //        Date date2 = simpleDateFormat.parse("2020/11/21");
 //        System.out.println(date1 + " " + date2);
 //        calendar.getTime();
+
+          JourSemaine joursemaine = JourSemaine.Lundi;
+          System.out.println("essai enum : " +joursemaine);
+
+        String chaineCaractereEntree = "Ceci est une phrase contenant 3 a";
+        char caractere = 'a';
+        System.out.println("chaine de caractére : " +chaineCaractereEntree+" en majuscule :"+passerEnMajuscule(chaineCaractereEntree));
+        System.out.println("chaine de caractére : " +chaineCaractereEntree
+                +" nb caractere :"+caractere+
+                " "+compterCaractereDansChaine(chaineCaractereEntree,caractere));
+
+        char c1 = 'a';
+        char c2 = 'Z';
+        System.out.println("chaine de caractére : " +chaineCaractereEntree
+                +" remplacer :"+c1+" par : "+c2+ " --> "
+                +transformerCaractere1enCaractere2(chaineCaractereEntree,c1,c2));
+
+        System.out.println("chaine de caractére : " +chaineCaractereEntree
+                +" raccourcie :"
+                +raccourcirChaineCaractere(chaineCaractereEntree));
+    }
+
+    public static String passerEnMajuscule(String chaineCaractereEntree){
+        return chaineCaractereEntree.toUpperCase();
+
+    }
+    public static int compterCaractereDansChaine(String chaineCaractereEntree, char caractere){
+        int compteur = 0;
+        for (int i = 0; i < chaineCaractereEntree.toCharArray().length; i++){
+           if (chaineCaractereEntree.toCharArray()[i] == caractere) {
+                compteur++;
+           }
+          }
+         return compteur;
+    }
+
+    public static String transformerCaractere1enCaractere2(String chaineCaractereEntree, char c1, char c2){
+        return chaineCaractereEntree.replace(c1,c2);
+
+    }
+
+    private static String raccourcirChaineCaractere(String chaineCaractereEntree){
+        if(chaineCaractereEntree.length()<10){
+            throw new RuntimeException("longueur chaine trop courte");
+        }
+        return chaineCaractereEntree.substring(0,5)+chaineCaractereEntree.substring(10);
 
     }
 }
