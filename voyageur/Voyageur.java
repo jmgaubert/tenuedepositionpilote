@@ -15,6 +15,22 @@ public class Voyageur implements Comparable{
         this.classeAvion = classeAvion;
     }
 
+    public int getNumeroVoyageur() {
+        return numeroVoyageur;
+    }
+
+    public String getNumeroSiege() {
+        return numeroSiege;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public ClasseAvion getClasseAvion() {
+        return classeAvion;
+    }
+
     @Override
     public String toString() {
         return ("Voyageur : " + numeroVoyageur
@@ -25,7 +41,12 @@ public class Voyageur implements Comparable{
 
     }
     @Override
-    public int compareTo(Object o){
-        return 0;
+    public int compareTo(Object obj){
+        Voyageur voyageurACompare = (Voyageur) obj; // cast de obj en voyageur
+        System.out.println(this.classeAvion);
+        System.out.println(voyageurACompare.getClasseAvion());
+        int i = this.classeAvion.compareTo(voyageurACompare.getClasseAvion());
+        System.out.println(i);
+        return i;
     }
 }
